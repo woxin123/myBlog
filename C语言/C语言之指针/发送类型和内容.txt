@@ -1,8 +1,0 @@
-发送所有的类型：http://47.95.207.40/Collection_elfin_war_exploded/SendAllType
-测试：http://47.95.207.40/Collection_elfin_war_exploded/getAllType.html
-发送：
-account:
-接收：{"data":["搜索"],"status":0}
-发送某个类型的全部URL：http://47.95.207.40/Collection_elfin_war_exploded/SendTypeAll
-测试：http://47.95.207.40/Collection_elfin_war_exploded/getTypeAll.jsp
-接收：{"status":0,"data":["http://www.baidu.com"]}
