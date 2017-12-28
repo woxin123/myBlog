@@ -15,9 +15,9 @@ void InsertSort(int a[], int n) {
 
 int main(void)
 {
-    int a[5] = {11, 2, 5, 78, 34};
-    InsertSort(a, 5);
-    for (int i = 0; i < 5; i++)
+    int a[7] = {11, 2, 5, 78, 34, 56, 23};
+    InsertSort(a, 7);
+    for (int i = 0; i < 7; i++)
         printf("%d ", a[i]);
 
     return 0;
