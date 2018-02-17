@@ -58,7 +58,7 @@ public int loadBeanDefinitions(EncodedResource encodedResource) throws BeanDefin
 	// 如果currentResources是空的，那么就重新创建一个
 	if (currentResources == null) {
 		currentResources = new HashSet<>(4);
-		this.resourcesCurrentlyBeingLoaded.setcurrentResources);
+		this.resourcesCurrentlyBeingLoaded.set(currentResources);
 	}
 	// 然后将新传入的resource添加currentResource，如果加失败那么就抛出异常
 	if (!currentResources.add(encodedResource)) {
@@ -133,7 +133,7 @@ protected int doLoadBeanDefinitions(InputSource inputSource, Resource resource)
 ```
 这个函数一开始调用了`Document doc = doLoadDocument(inputSource, esource);`
 下面我们先来看InputSource，InputSource在Java的API上是这样介绍的:
-> public class InputSourceextends ObjectXML 实体的单一输入源。 
+> public class InputSource extends ObjectXML 实体的单一输入源。 
 
 > 此模块（包括源代码和文档）在公共域中，同时 没有担保。有关更多信息，请参阅http://www.saxproject.org。 
 此类允许 SAX 应用程序封装有关单个对象中的输入源的信息，它可包括公共标识符、系统标识符、字节流（可能带有指定的编码）、基本 URI 和/ 或字符流。
