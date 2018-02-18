@@ -1,0 +1,1 @@
+1. 一个单独的`<mvc:default-servlet-handler />`会导致controller，后面必须加一句`<mvc:annotation-driven />`
