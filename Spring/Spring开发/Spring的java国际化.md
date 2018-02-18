@@ -12,11 +12,23 @@
     <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
 </mvc:interceptors>
 ```
-如果是基于Header（请求头）的则不适用国际化拦截器。
-## 配置语言拦截器
+如果是基于Header（请求头）的则不适用国际化拦截器。但是如果是Session，则需要进行如下的配置：
+```xml
+<mvc:interceptors>
+    <!-- 如果采用（Session/Cookie）配置则必须配置 -->
+    <bean  id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+</mvc:interceptors>
+```
+## 配置语言处理器
+Header的处理器是默认的不用配置，下面的是它的Bean：
 ```
 <!-- AcceptHeaederLocaleResolver配置，因为AcceptHeaederLocaleResolver是默认的语言区域解析器，所以不使用解析器也可以 -->
 <bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" />
+```
+Session的语言处理器：
+```
+ <!-- SeesionLocaleResolve配置 -->
+<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 ```
 ## Jsp页面的
 Jsp页面的使用标签
