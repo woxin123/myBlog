@@ -99,3 +99,16 @@ protected Resource getResourceByPath(String path) {
 	return new FileSystemResource(path);
 }
 ```
+## Ioc容器的初始化过程
+Ioc容器的初始化是由前面说的refresh()方法来启动的，这个方法标志着Ioc容器的正式启动。
+这个启动过程包括如下的三步：
+1. BeanDefinitions的Resource的定位
+2. BeanDefinitions的载入
+3. BeanDefinitions的注册
+Spring是将这三个过程分开，并使用不同的模块完成的，如使用相应的ResourceLoader、BeanDefinitionReader等模块。
+### 1. Resource的资源定位
+第一个过程是Resource的资源定位。值得也就是BeanDefinition的资源定位，他由统一的Resource接口完成，这个Resource对各种形式的BeanDefinition的使用都提供了统一接口。
+### 2. 载入BeanDefinition
+第二个过程是BeanDefinition的载入。这个载入的过程是把用户定义的Bean载入到Ioc容器内部的数据结构。
+### 3. 想Ioc容器注册这些BeanDefinition
+第三个过程是向Ioc容器注册这些BeanDefinition的过程。这个过程是通过调用BeanDefinitionRegistry接口来完成的。这个注册的过程把载入的BeanDefinition向Ioc容器进行注册。最终注册到的是一个HashMap。
