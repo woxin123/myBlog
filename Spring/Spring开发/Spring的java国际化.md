@@ -4,6 +4,7 @@
 <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
           p:basename="message" />
 ```
+奇怪的是如果不配置这个bean的id，这个Bean就不会起作用。
 ## 配置拦截器
 ```xml
 <!-- 国际化操作拦截器 -->
@@ -29,6 +30,10 @@ Session的语言处理器：
 ```
  <!-- SeesionLocaleResolve配置 -->
 <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+```
+Cookie的语言处理器：
+```
+<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
 ```
 ## Jsp页面的
 Jsp页面的使用标签
