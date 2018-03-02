@@ -112,3 +112,5 @@ Spring是将这三个过程分开，并使用不同的模块完成的，如使�
 第二个过程是BeanDefinition的载入。这个载入的过程是把用户定义的Bean载入到Ioc容器内部的数据结构。
 ### 3. 想Ioc容器注册这些BeanDefinition
 第三个过程是向Ioc容器注册这些BeanDefinition的过程。这个过程是通过调用BeanDefinitionRegistry接口来完成的。这个注册的过程把载入的BeanDefinition向Ioc容器进行注册。最终注册到的是一个HashMap。
+值得注意的是，这里的Ioc容器的初始化过程，一般不包括Bean的依赖注入的实现。**在Spring IOC的设计中，Bean的定义和载入是两个独立的过程。<font color="red">依赖注入一般发生于应用的第一次通过getBean向容器索取Bean的时候。</font></font>**但有一个例外就是，在使用Ioc容器时有一个预实例化的配置（具体来说，可以通过为Bean定义信息中的lazy-init属性），用户可以对容器的初始化过程做一个微小的控制。也就是说如果对某个Bean的定义设置了lazying-init属性，那么这个Bean的依赖注入就在Ioc容器的初始化时完成了。
+## BeanDefinition的Resource定位

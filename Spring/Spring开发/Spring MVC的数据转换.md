@@ -171,3 +171,9 @@ public class DateBindingInitializer implements WebBindingInitializer {
     </property>
 </bean>
 ```
+
+### 2.6 多种转换器的优先顺序
+顺序如下：
+1. 通过@InitBinder装配的自定义编辑器。
+2. 通过ConversionService装配的自定义编辑器。
+3. 通过WebBindingInitializer接口装配的全局自定义编辑器。

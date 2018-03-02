@@ -31,19 +31,7 @@ public interface BeanFactory {
 
 ### 1. 关于FACTORY_BEAN_PREFIX
 ```java
-    /**
-	 * Used to dereference a {@link FactoryBean} instance and distinguish it from
-	 * beans <i>created</i> by the FactoryBean. For example, if the bean named
-	 * {@code myJndiObject} is a FactoryBean, getting {@code &myJndiObject}
-	 * will return the factory, not the instance returned by the factory.
-	 * 
-	 * 用户使用容器时，可以使用转义符"&"来得到FactoryBean本身，用来区分通过容器获取FactoryBean产生的对象和获取FactoryBean本身
-	 * 举个例子：如果说myJndiObject是一个Factory，那么使用&myJndiObject得到的是FactoryBean，而不是使用myJndiObject这个BeanFactory
-	 * 产生的对象。换句话说：使用&myJndiObject得到的是一个FactoryBean,这个是一个Bean，
-	 * 而使用myJndiFactory得到的是BeanFactory产生的对象，而不是这个FactoryBean。
-	 * 
-	 */
-	String FACTORY_BEAN_PREFIX = "&";
+String FACTORY_BEAN_PREFIX = "&";
 ```
 
 这里有两个重要的概念：FactoryBean和BeanFactory。
